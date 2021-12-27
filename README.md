@@ -1,6 +1,6 @@
-![IMADA Logo](src/qt/res/images/imada_logo_horizontal.png)
+![IMADA Logo](src/qt/res/images/cloverpatch_logo_horizontal.png)
 
-"FIRST OF ITS KIND"
+"Where You May Find A Pot of Gold, A Leperchan, or a Four Leaf Clover"
 
 Features
 =============
@@ -11,37 +11,36 @@ Features
 * Segwit
 * Smart contract
 * New PHI2 PoW/PoS hybrid algorithm
-* Imadagate
+* CloverPatch
 * Parallel masternode
-* ~~PHI1612 PoW/PoS hybrid algorithm~~
 
-The Imadacore Project is a decentralized peer-to-peer banking financial platform, created under an open source license, featuring a built-in cryptocurrency, end-to-end encrypted messaging and decentralized marketplace. The decentralized network aims to provide anonymity and privacy for everyone through a simple user-friendly interface by taking care of all the advanced cryptography in the background.
+The CloverPatch Core Project is a decentralized peer-to-peer banking financial platform, created under an open source license, featuring a built-in cryptocurrency, end-to-end encrypted messaging and decentralized marketplace. The decentralized network aims to provide anonymity and privacy for everyone through a simple user-friendly interface by taking care of all the advanced cryptography in the background.
 
-The Imadagate allow for communications among validated blockchain with the ability to perform tasks and advanced functions. Through the use of Pmn, Imada is able to interact with many other popular blockchains and create a unifying bond among those ecosystems.
+The CloverPatch allow for communications among validated blockchain with the ability to perform tasks and advanced functions. Through the use of Pmn, CloverPatch is able to interact with many other popular blockchains and create a unifying bond among those ecosystems.
 
-Imada doesn't provide direct support for dapp database. Instead, a mechanism to interact with another Blockchain via Imadagate function where the other Blockchain can send and receive trigger function notices and international data through the Imada network via Parallel Masternode (Pmn) and Imadagate. Pmn & Imadagate can also be used to interact with the centralized services such as banker. Those centralism service can connect to the Imada network for specific trigger of the Imadagate via Pmn. It will allow for their developed autonomous system to act based on their behalf. The Pmn will then be developed by the connecting Blockchain developer. Imadacore will have to supply a deployment guide to assist their developer. In other to assist the Centralized services, Imada will need to provide a centralized trustworthy environments. So user have their trusted oversight to verify that the transactions are legitimate.
+CloverPatch doesn't provide direct support for dapp database. Instead, a mechanism to interact with another Blockchain via Imadagate function where the other Blockchain can send and receive trigger function notices and international data through the CloverPatch network via Parallel Masternode (Pmn) and Clovers. Pmn & CloverPatch can also be used to interact with the centralized services such as banker. Those centralism service can connect to the CloverPatch network for specific trigger of the CloverPatch via Pmn. It will allow for their developed autonomous system to act based on their behalf. The Pmn will then be developed by the connecting Blockchain developer. Clover Patch Core will have to supply a deployment guide to assist their developer. In other to assist the Centralized services, Imada will need to provide a centralized trustworthy environments. So user have their trusted oversight to verify that the transactions are legitimate.
 
-In addition, without Imadagate and Pmn, Bitcoin and Ethereum cannot interact with each other on the same Blockchain because the technology is incompatible. It is almost impossible before our Pmn and Imadagate functions are implemented. Therefore, we have to introduce a Smartcontract & Segwit features in the next release to verify that we succeed to combine those different technologies together to create a brand new unique features of IMADA.
+In addition, without CloverPatch and Pmn, Bitcoin and Ethereum cannot interact with each other on the same Blockchain because the technology is incompatible. It is almost impossible before our Pmn and CloverPatch functions are implemented. Therefore, we have to introduce a Smartcontract & Segwit features in the next release to verify that we succeed to combine those different technologies together to create a brand new unique features of CLOVERS.
 
 ## Coin Specifications
 
 | Specification | Value |
 |:-----------|:-----------|
-| Total Blocks | `6,000,000` |
+| Total Blocks | `2,222,222` |
 | Block Size | `4MB` |
 | Block Time | `60s` |
 | PoW Block Time | `120s`   |
-| PoW Reward | `10 IMADA` |
-| PoS Reward | `1 IMADA` |
+| PoW Reward | `21 CLOVERS` |
+| PoS Reward | `1 CLOVERS` |
 | Stake Time | `36 hours` | 
-| Masternode Requirement | `16,120 IMADA` |
+| Masternode Requirement | `16,120 CLOVERS` |
 | Masternode Reward | `20% PoW/PoS` |
-| Port | `13332` |
-| RPC Port | `13333` |
-| Masternode Port | `13332` |
-| Imada legacy address start with | `L` |
-| p2sh-segwit address start with | `S` |
-| Bech32 address start with | `bc` |
+| Port | `33133` |
+| RPC Port | `33233` |
+| Masternode Port | `33433` |
+| Imada legacy address start with | `C` |
+| p2sh-segwit address start with | `4` |
+| Bech32 address start with | `sham` |
 
 * NOTE: "getrawchangeaddress p2sh-segwit" to get p2sh-segwit address 
 
