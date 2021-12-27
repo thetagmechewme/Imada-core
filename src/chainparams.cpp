@@ -93,12 +93,12 @@ static const Checkpoints::CCheckpointData data = {
 
 static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
     boost::assign::map_list_of
-        ( 0,   uint256("0x00000df738b681fb21b988e2c10664a3bcc732d044c715fd8430a86f8f55b02d") );
+        ( 0,   uint256("0x") );
 static const Checkpoints::CCheckpointData dataTestnet = {
     &mapCheckpointsTestnet,
-    1537821001,
     0,
-    1.0
+    0,
+    0
 };
 
 static Checkpoints::MapCheckpoints mapCheckpointsRegtest =
@@ -129,24 +129,24 @@ public:
         consensus.nMajorityEnforceBlockUpgrade = 750;
         consensus.nMajorityRejectBlockOutdated = 950;
         consensus.nMajorityWindow = 1000;
-        //consensus.BIP34Height = 227931;
+        //consensus.BIP34Height = 0;
         //consensus.BIP34Hash = uint256S("0x000000000000024b89b42a942fe0d9fea3bb44ab7bd1b19115dd6a759c0808b8");
         consensus.powLimit = ~uint256(0) >> 20; // IMADA starting difficulty is 1 / 2^12
-        consensus.nPowTargetTimespan = 30 * 60; //36 * 60 * 60; // IMADA: 1 36hrs
-        consensus.nPowTargetSpacing = 2 * 60;  // IMADA: 2 minute
+        consensus.nPowTargetTimespan = 181942; //; // CLOVER 2 days 2 hours 22 minutes and 22 seconds
+        consensus.nPowTargetSpacing = 2 * 142;  // CLOVER: 2 min 22 sec 
         consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
-        consensus.nRuleChangeActivationThreshold = 1026; // 95% of 1080 is 1026
-        consensus.nMinerConfirmationWindow = 1080; // nPowTargetTimespan / nPowTargetSpacing
+        consensus.nRuleChangeActivationThreshold = 1217.217605633803; // 95% of 1080 is 1026
+        consensus.nMinerConfirmationWindow = 1281.281690140845; // nPowTargetTimespan / nPowTargetSpacing
         consensus.nLastPOWBlock = 30000000;
         // Deployment of SegWit (BIP141 and BIP143)
         consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].bit = 1;
-        consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nStartTime = 1530428034; // 01/07/2018
-        consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 1561964034; // 01/07/2019
+        consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nStartTime = 0; // 01/07/2018
+        consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 0; // 01/07/2019
 
         consensus.vDeployments[Consensus::DEPLOYMENT_CSV].bit = 0;
-        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nStartTime = 1530428034; // 01/07/2018
-        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = 1561964034; // 01/07/2019
+        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nStartTime = 0; // 01/07/2018
+        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = 0; // 01/07/2019
 
         //SMART_CONTRACTS_HARDFORK deployment does not require start time and timeout, because it uses block number
         //This is not used now, because we need to check this bit in block.h using versionbits, which results in cyclic
@@ -164,22 +164,23 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 4-byte int at any alignment.
          */
-        pchMessageStart[0] = 0x6a;
-        pchMessageStart[1] = 0xb3;
-        pchMessageStart[2] = 0xc8;
-        pchMessageStart[3] = 0xa9;
-        vAlertPubKey = ParseHex("042d13c016ed91528241bcff222989769417eb10cdb679228c91e26e26900eb9fd053cd9f16a9a2894ad5ebbd551be1a4bd23bd55023679be17f0bd3a16e6fbeba");
-        nDefaultPort = 13332;
+        pchMessageStart[0] = 0x34;
+        pchMessageStart[1] = 0x4c;
+        pchMessageStart[2] = 0x45;
+        pchMessageStart[3] = 0x41;
+        pchMessageStart[4] = 0x46;
+        vAlertPubKey = ParseHex("042d13c016ed50380431bcff222989769417eb10cdb679228c91e26e26900eb9fd053cd9f16a9a2894ad5ebbd551be1a4bd23bd55023679be17f0bd3a16e6fbeba");
+        nDefaultPort = 33133;
         nMaxReorganizationDepth = 100;
         nMinerThreads = 0;
-        nMaturity = 79;
+        nMaturity = 88;
         nMasternodeCountDrift = 20;
         nModifierUpdateBlock = 615800;
 
-        const char* pszTimestamp = "Imada - Great project - ThankYou - sanit.sa"; // Input Activation code to activate blockchain
+        const char* pszTimestamp = "Clover Patch - New Years Ish"; // Input Activation code to activate blockchain
         CMutableTransaction txNew;
         txNew.nVersion = 1;
-        txNew.nTime = 1537961189;
+        txNew.nTime = 0;
         txNew.nLockTime = 0;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -190,11 +191,11 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = BlockMerkleRoot(genesis);
         genesis.nVersion = 1;
-        genesis.nTime = 1537961189;
+        genesis.nTime = 0;
         genesis.nBits = 0x1e0fffff;
-        genesis.nNonce = 2053491;
-        genesis.hashStateRoot = uint256(h256Touint(dev::h256("e965ffd002cd6ad0e2dc402b8044de833e06b23127ea8c3d80aec91410771495"))); // imada
-        genesis.hashUTXORoot = uint256(h256Touint(dev::sha3(dev::rlp("")))); // imada
+        genesis.nNonce = 0;
+        genesis.hashStateRoot = uint256(h256Touint(dev::h256(""))); // clovers
+        genesis.hashUTXORoot = uint256(h256Touint(dev::sha3(dev::rlp("")))); // clovers
 
         consensus.hashGenesisBlock = genesis.GetHash();
 
@@ -205,21 +206,21 @@ public:
 //        std::cout << genesis.GetHash().GetHex() << std::endl;
 //        std::cout << genesis.hashMerkleRoot.GetHex() << std::endl;
 
-        assert(consensus.hashGenesisBlock == uint256("0x000001f66a3fbd68cfab80df92d0b066521e4835093e6da4c6f1779fcc831073"));
-        assert(genesis.hashMerkleRoot == uint256("0x85cfdee7b7f14eef395394d9c5820d061bc7c8905d872bc7b4019c6480a6ae95"));
+        assert(consensus.hashGenesisBlock == uint256("0x00"));
+        assert(genesis.hashMerkleRoot == uint256("0x00"));
 
         ////////////////////////////////////////////////////////////////////////////////////////////////
-        vSeeds.push_back(CDNSSeedData("52.197.69.103", "52.197.69.103"));        // Main seed
-        vSeeds.push_back(CDNSSeedData("18.136.58.122", "18.136.58.122"));        // Main seed
-        vSeeds.push_back(CDNSSeedData("52.220.247.181", "52.220.247.181"));        // Main seed
+        vSeeds.push_back(CDNSSeedData("95.179.139.163", "95.179.139.163"));        // Main seed
+        vSeeds.push_back(CDNSSeedData("78.141.230.105", "78.141.230.105"));        // Main seed
+        vSeeds.push_back(CDNSSeedData("217.69.7.194", "217.69.7.194"));        // Main seed
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,73); // IMADA address start with 'W'
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,63); // IMADA script addresses start with 'S'
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,11); // CLOVER address start with 'C'
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,19); // CLOVER script addresses start with '4'
         base58Prefixes[SECRET_KEY]     = std::vector<unsigned char>(1,155);
-        base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x07)(0x28)(0xA2)(0x4E).convert_to_container<std::vector<unsigned char> >();
-        base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x03)(0xD8)(0xA1)(0xE5).convert_to_container<std::vector<unsigned char> >();
+        base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x6C)(0x75)(0x63)(0x6B).convert_to_container<std::vector<unsigned char> >();
+        base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x47)(0x4F)(0x4C)(0x44).convert_to_container<std::vector<unsigned char> >();
 
-        bech32_hrp = "bc";
+        bech32_hrp = "4l";
 
         convertSeed6(vFixedSeeds, pnSeed6_main, ARRAYLEN(pnSeed6_main));
 
@@ -232,12 +233,12 @@ public:
         fHeadersFirstSyncingActive = false;
 
         nPoolMaxTransactions = 3;
-        strSporkKey = "04a983220ea7a38a7106385003fef77896538a382a0dcc389cc45f3c98751d9af423a097789757556259351198a8aaa628a1fd644c3232678c5845384c744ff8d7";
+        strSporkKey = "04a983220ea7a38a3145038043fef77896538a382a0dcc389cc45f3c98751d9af423a097789757556259351198a8aaa628a1fd644c3232678c5845384c744ff8d7";
 
         strDarksendPoolDummyAddress = "WPH39L22MF15jRdP4Rni9K9GU1KQFpFBFe";
-        nStartMasternodePayments = 1537961189;
+        nStartMasternodePayments = 0;
 
-        nStakingRoundPeriod = 120; // 2 minutes a round
+        nStakingRoundPeriod = 142; // 2 minutes a round
         nStakingInterval = 22;
         nStakingMinAge = 360;
     }
@@ -261,7 +262,7 @@ public:
         consensus.nMajorityRejectBlockOutdated = 75;
         consensus.nMajorityWindow = 100;
         //consensus.BIP34Height = 227931;
-        //consensus.BIP34Hash = uint256S("0x000000000000024b89b42a942fe0d9fea3bb44ab7bd1b19115dd6a759c0808b8");
+        //consensus.BIP34Hash = uint256S("0x00");
         consensus.powLimit = ~uint256(0) >> 10; // IMADA starting difficulty is 1 / 2^12
         consensus.nPowTargetTimespan = 30 * 60; //36 * 60 * 60; // IMADA: 1 36hrs
         consensus.nPowTargetSpacing = 2 * 60;  // IMADA: 2 minute
@@ -271,11 +272,11 @@ public:
         consensus.nMinerConfirmationWindow = 1440; // nPowTargetTimespan / nPowTargetSpacing
         // Deployment of SegWit (BIP141 and BIP143)
         consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].bit = 1;
-        consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nStartTime = 577836800;
-        consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 2577836900; // Never / undefined
+        consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nStartTime = 0;
+        consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 0; // Never / undefined
         consensus.vDeployments[Consensus::DEPLOYMENT_CSV].bit = 0;
-        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nStartTime = 577836800;
-        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = 2577836900; // Never / undefined
+        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nStartTime = 0;
+        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = 0; // Never / undefined
         consensus.nLastPOWBlock = 30000000;
 
         networkID = CBaseChainParams::TESTNET;
@@ -285,16 +286,16 @@ public:
         pchMessageStart[2] = 0x51;
         pchMessageStart[3] = 0xab;
         vAlertPubKey = ParseHex("000010e83b2703ccf322f7dbd62dd5855ac7c10bd055814ce121ba32607d573b8810c02c0582aed05b4deb9c4b77b26d92428c61256cd42774babea0a073b2ed0c9");
-        nDefaultPort = 13222;
+        nDefaultPort = 44144;
         nMinerThreads = 0;
         nMaturity = 10;
         nModifierUpdateBlock = 51197; //approx Mon, 17 Apr 2017 04:00:00 GMT
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
-        const char* pszTimestamp = "Imada - Testnet 1"; // Input Activation code to activate blockchain
+        const char* pszTimestamp = "clovers - Testnet 1"; // Input Activation code to activate blockchain
         CMutableTransaction txNew;
         txNew.nVersion = 1;
-        txNew.nTime = 1537821001;
+        txNew.nTime = 0;
         txNew.nLockTime = 0;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -306,10 +307,10 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = BlockMerkleRoot(genesis);
         genesis.nVersion = 1;
-        genesis.nTime = 1537821001;
+        genesis.nTime = 0;
         genesis.nBits = 0x1e0fffff;
-        genesis.nNonce = 1135789;
-        genesis.hashStateRoot = uint256(h256Touint(dev::h256("e965ffd002cd6ad0e2dc402b8044de833e06b23127ea8c3d80aec91410771495"))); // imada
+        genesis.nNonce = 0;
+        genesis.hashStateRoot = uint256(h256Touint(dev::h256(""))); // imada
         genesis.hashUTXORoot = uint256(h256Touint(dev::sha3(dev::rlp("")))); // imada
 
 //        while (!CheckProof(genesis.GetHash(), genesis.nBits)) {
@@ -326,13 +327,13 @@ public:
 
         consensus.hashGenesisBlock = genesis.GetHash();
 
-        assert(consensus.hashGenesisBlock == uint256("0x00000df738b681fb21b988e2c10664a3bcc732d044c715fd8430a86f8f55b02d"));
-        assert(genesis.hashMerkleRoot == uint256("0x6aed4a986ae823c25e0690e6d58df2bf1df55b6cb874c9aa56d0c0c8ba326b23"));
+        assert(consensus.hashGenesisBlock == uint256("0x00"));
+        assert(genesis.hashMerkleRoot == uint256("0x"));
 
         //vFixedSeeds.clear();
         //vSeeds.clear();
-        //vSeeds.push_back(CDNSSeedData("imadatest1", "140.82.45.100"));
-        //vSeeds.push_back(CDNSSeedData("imadatest2", "144.202.3.186"));
+        //vSeeds.push_back(CDNSSeedData("45.32.144.225", "45.32.144.225"));
+        //vSeeds.push_back(CDNSSeedData("78.141.230.105", "78.141.230.105"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 73); // Testnet imada addresses start with 'l'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 63);  // Testnet imada script addresses start with 'S'
@@ -360,7 +361,7 @@ public:
         strSporkKey = "04348C2F50F90267E64FACC65BFDC9D0EB147D090872FB97ABAE92E9A36E6CA60983E28E741F8E7277B11A7479B626AC115BA31463AC48178A5075C5A9319D4A38";
 
         strDarksendPoolDummyAddress = "LPGq7DZbqZ8Vb3tfLH8Z8VHqeV4fsK68oX";
-        nStartMasternodePayments = 1537821001;
+        nStartMasternodePayments = 0;
 
         nStakingRoundPeriod = 120; // 5 seconds a round
         nStakingInterval = 22; // 30 seconds
@@ -412,12 +413,12 @@ public:
         pchMessageStart[3] = 0xac;
         nMinerThreads = 1;
         nMaturity = 2;
-        genesis.nTime = 1454124731;
+        genesis.nTime = 0;
         genesis.nBits = 0x207fffff;
-        genesis.nNonce = 12345;
+        genesis.nNonce = 0;
 
         consensus.hashGenesisBlock = genesis.GetHash();
-        nDefaultPort = 51476;
+        nDefaultPort = 55155;
 //        assert(hashGenesisBlock == uint256("0"));
 
         vFixedSeeds.clear(); //! Testnet mode doesn't have any fixed seeds.
@@ -446,7 +447,7 @@ public:
     {
         networkID = CBaseChainParams::UNITTEST;
         strNetworkID = "unittest";
-        nDefaultPort = 51478;
+        nDefaultPort = 44244;
         vFixedSeeds.clear(); //! Unit test mode doesn't have any fixed seeds.
         vSeeds.clear();      //! Unit test mode doesn't have any DNS seeds.
 
@@ -491,13 +492,13 @@ public:
         consensus.nMinerConfirmationWindow = 10; // nPowTargetTimespan / nPowTargetSpacing
         // Deployment of SegWit (BIP141 and BIP143)
         consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].bit = 1;
-        consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nStartTime = 1524733200;
-        consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 1557187200; // TODO: ?? - just some random date - 05.07.2019
+        consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nStartTime = 0;
+        consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 0; // TODO: ?? - just some random date - 05.07.2019
         //Deployment of CSV
         consensus.vDeployments[Consensus::DEPLOYMENT_CSV].bit = 0;
         consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nStartTime = 0;
         consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = 999999999999ULL;
-        consensus.nLastPOWBlock = 30000000;
+        consensus.nLastPOWBlock = 0;
 
         nSwitchPhi2Block = 1200;
         //nFirstSCBlock = 300000;
@@ -521,10 +522,10 @@ public:
         nModifierUpdateBlock = 615800;
         bech32_hrp = "bcst";
 
-        const char* pszTimestamp = "Imada - Great project - ThankYou - sanit.sa"; // Input Activation code to activate blockchain
+        const char* pszTimestamp = "Clover Patch - New Years Ish"; // Input Activation code to activate blockchain
         CMutableTransaction txNew;
         txNew.nVersion = 1;
-        txNew.nTime = 1537821001;
+        txNew.nTime = 0;
         txNew.nLockTime = 0;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -537,9 +538,9 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = BlockMerkleRoot(genesis);
         genesis.nVersion = 1;
-        genesis.nTime = 1537821001;
+        genesis.nTime = 0;
         genesis.nBits = 0x1e0fffff;
-        genesis.nNonce = 1533044;
+        genesis.nNonce = 0;
 
 //        while (!CheckProof(genesis.GetHash(), genesis.nBits)) {
 //            genesis.nNonce ++;
@@ -550,8 +551,8 @@ public:
 
         consensus.hashGenesisBlock = genesis.GetHash();
 
-        assert(consensus.hashGenesisBlock == uint256("0x000003d45bce8ed62ff874d98580889ece1d5cd192d9cdfde0917698f852ac07"));
-        assert(genesis.hashMerkleRoot == uint256("0xa5ec5f6b78239bfbf984042fca8c50394ec8b6b37dcfa38e5579a1da86b39d27"));
+        assert(consensus.hashGenesisBlock == uint256("0x00"));
+        assert(genesis.hashMerkleRoot == uint256("0x00"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,73); // IMADA Start letter W
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,64);
@@ -568,7 +569,7 @@ public:
         fHeadersFirstSyncingActive = false;
 
         nPoolMaxTransactions = 3;
-        strSporkKey = "04a983220ea7a38a7106385003fef77896538a382a0dcc389cc45f3c98751d9af423a097789757556259351198a8aaa628a1fd644c3232678c5845384c744ff8d7";
+        strSporkKey = "04a983220ea7a38a3145038043fef77896538a382a0dcc389cc45f3c98751d9af423a097789757556259351198a8aaa628a1fd644c3232678c5845384c744ff8d7";
 
         strDarksendPoolDummyAddress = "LgcjpYxWa5EB9KCYaRtpPgG8kgiWRvJY38";
         nStartMasternodePayments = 1537821001;
